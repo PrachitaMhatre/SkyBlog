@@ -1,0 +1,134 @@
+import React, { useEffect, useState } from 'react';
+import { FaUser, FaLock, FaCamera } from 'react-icons/fa';
+import { useDispatch, useSelector } from 'react-redux';
+import { BaseUrl, patch } from '../services/Endpoint';
+import { useParams } from 'react-router-dom';
+import toast from 'react-hot-toast';
+import { setUser } from '../redux/AuthSlice';
+
+export default function Profile() {
+  const { userId } = useParams();
+  const dispatch = useDispatch();
+  
+  const [profileImage, setProfileImage] = useState(null);
+  const [name, setName] = useState('');
+  const [oldPassword, setOldPassword] = useState('');
+  const [newPassword, setNewPassword] = useState('');
+  const user = useSelector((state) => state.auth.user);
+
+  useEffect(() => {
+    if (user) {
+      setName(user.FullName);
+    }
+  }, [user]); 
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file && file instanceof File) {
+      setProfileImage(file);
+    } else {
+      setProfileImage(null); 
+    }
+  };
+
+  const handleUpdateProfile = async (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append('FullName', name);
+    formData.append('oldpassword', oldPassword);
+    formData.append('newpassword', newPassword);
+
+    if (profileImage) {
+      formData.append('profile', profileImage);
+    }
+
+    try {
+      const response = await patch(`auth/profile/${userId}`, formData);
+      const data = response.data;
+      console.log(data);
+
+      if (response.status === 200) {
+        toast.success(data.message);
+        // Deep clone to force React re-render
+        dispatch(setUser({ ...data.user }));
+      }
+    } catch (error) {
+      console.log(error);
+      if (error.response && error.response.data && error.response.data.message) {
+        toast.error(error.response.data.message);
+      } else {
+        toast.error("An unexpected error occurred. Please try again.");
+      }
+    }
+  };
+
+  return (
+    <div className="profile-container">
+      <h1 className="profile-title">Update Profile</h1>
+      <form className="profile-form" onSubmit={handleUpdateProfile}>
+        <div className="profile-image-section">
+          <label htmlFor="profileImage" className="profile-image-label">
+            {profileImage instanceof File ? (
+              <img 
+                src={URL.createObjectURL(profileImage)} 
+                alt="Avatar" 
+                className="profile-image" 
+              />
+            ) : (
+              <div className="profile-placeholder">
+                <img 
+                  src={`${BaseUrl}/images/${user?.profile}?t=${new Date().getTime()}`} 
+                  alt='Avatar'  
+                  className="profile-image" 
+                />
+              </div>
+            )}
+            <FaCamera className="profile-camera-icon" />
+          </label>
+          <input
+            type="file"
+            id="profileImage"
+            accept="image/*"
+            onChange={handleImageChange}
+            className="profile-image-input"
+          />
+        </div>
+
+        <div className="input-group">
+          <FaUser className="input-icon" />
+          <input
+            type="text"
+            placeholder="Update Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            className="profile-input"
+          />
+        </div>
+
+        <div className="input-group">
+          <FaLock className="input-icon" />
+          <input
+            type="password"
+            placeholder="Old Password"
+            value={oldPassword}
+            onChange={(e) => setOldPassword(e.target.value)}
+            className="profile-input"
+          />
+        </div>
+
+        <div className="input-group">
+          <FaLock className="input-icon" />
+          <input
+            type="password"
+            placeholder="New Password"
+            value={newPassword}
+            onChange={(e) => setNewPassword(e.target.value)}
+            className="profile-input"
+          />
+        </div>
+
+        <button type="submit" className="profile-button">Update Profile</button>
+      </form>
+    </div>
+  );
+}
