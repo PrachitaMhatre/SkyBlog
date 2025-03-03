@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy Node.js app to Azure Web App - SkyBlog
+name: Build and deploy Node.js app to Azure Web App - skyblog
 
 on:
   push:
@@ -54,15 +54,15 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_F1B43C4D0951453C916F43667A23BC54 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_A802727BC8224B44BDFF76F95D44FCB5 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_89127677A766479B9BF006BC52E4CD55 }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_EB7FD5DEF6AF4530A634C6D665E938BC }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_F35760C08A124DDF9738BACF0D6EA6CB }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_F4F326515BD64046B008830A8C41AB6B }}
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
         id: deploy-to-webapp
         with:
-          app-name: 'SkyBlog'
+          app-name: 'skyblog'
           slot-name: 'Production'
           package: .
           
