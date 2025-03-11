@@ -20,15 +20,10 @@ export default function Profile() {
     if (user) {
       setName(user.FullName);
     }
-  }, [user]); 
+  }, []); 
 
   const handleImageChange = (e) => {
-    const file = e.target.files[0];
-    if (file && file instanceof File) {
-      setProfileImage(file);
-    } else {
-      setProfileImage(null); 
-    }
+    setProfileImage(e.target.files[0]);
   };
 
   const handleUpdateProfile = async (e) => {
@@ -49,8 +44,7 @@ export default function Profile() {
 
       if (response.status === 200) {
         toast.success(data.message);
-        // Deep clone to force React re-render
-        dispatch(setUser({ ...data.user }));
+        dispatch(setUser(data.user));
       }
     } catch (error) {
       console.log(error);
@@ -68,7 +62,7 @@ export default function Profile() {
       <form className="profile-form" onSubmit={handleUpdateProfile}>
         <div className="profile-image-section">
           <label htmlFor="profileImage" className="profile-image-label">
-            {profileImage instanceof File ? (
+            {profileImage ? (
               <img 
                 src={URL.createObjectURL(profileImage)} 
                 alt="Avatar" 
@@ -77,7 +71,7 @@ export default function Profile() {
             ) : (
               <div className="profile-placeholder">
                 <img 
-                  src={`${BaseUrl}/images/${user?.profile}?t=${new Date().getTime()}`} 
+                  src={`${BaseUrl}/images/${user.profile}`} 
                   alt='Avatar'  
                   className="profile-image" 
                 />

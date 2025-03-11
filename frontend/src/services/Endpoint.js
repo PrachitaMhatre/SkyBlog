@@ -1,9 +1,7 @@
 import axios from "axios";
 
-// ✅ Use env variable for Base URL
 export const BaseUrl = import.meta.env.VITE_API_URL || "http://localhost:8080";
 
-// ✅ Create Axios instance
 const instance = axios.create({
   baseURL: BaseUrl,
   withCredentials: true,
@@ -13,7 +11,6 @@ const instance = axios.create({
   },
 });
 
-// ✅ Helper functions for API requests
 export const get = (url, params) => instance.get(url, { params });
 
 export const post = (url, data, isFormData = false) =>
@@ -23,10 +20,12 @@ export const post = (url, data, isFormData = false) =>
       : { "Content-Type": "application/json" },
   });
 
-export const put = (url, data) => {
-  console.log("🔄 PUT Request URL:", `${BaseUrl}${url}`);
-  console.log("🔄 PUT Request Data:", data);
-  return instance.put(url, data);
+export const put = (url, data, isFormData = false) => {
+  return instance.put(url, data, {
+    headers: isFormData
+      ? { "Content-Type": "multipart/form-data" }
+      : { "Content-Type": "application/json" },
+  });
 };
 
 export const del = (url) => instance.delete(url);
@@ -35,7 +34,7 @@ export const patch = (url, data) => instance.patch(url, data);
 // ✅ Logging Requests & Responses
 instance.interceptors.request.use(
   (config) => {
-    console.log("📤 Request:", config.method.toUpperCase(), config.url, config);
+    console.log("📤 Request:", config.method.toUpperCase(), config.url);
     return config;
   },
   (error) => {
@@ -45,10 +44,7 @@ instance.interceptors.request.use(
 );
 
 instance.interceptors.response.use(
-  (response) => {
-    console.log("✅ API Response:", response);
-    return response;
-  },
+  (response) => response,
   (error) => {
     console.error("❌ API Error:", error.response?.data || error.message);
     return Promise.reject(error);

@@ -1,6 +1,6 @@
 const express = require("express");
 const multer = require("multer");
-const Post = require("../models/Post"); // Your Mongoose Post model
+const Post = require("../models/Post");
 const router = express.Router();
 
 // ✅ Setup Multer for File Uploads
@@ -18,7 +18,7 @@ const upload = multer({ storage });
 // ✅ Update Post API (Handles Text + Image)
 router.put("/update/:id", upload.single("image"), async (req, res) => {
   try {
-    const { id } = req.params; // ✅ Fix incorrect parameter name
+    const { id } = req.params;
     const { title, description } = req.body;
     const postImage = req.file ? req.file.filename : null;
 
@@ -40,12 +40,12 @@ router.put("/update/:id", upload.single("image"), async (req, res) => {
 
     return res
       .status(200)
-      .json({ success: true, message: "Post updated successfully :)", post });
+      .json({ success: true, message: "Post updated successfully", post });
   } catch (error) {
     console.error("❌ Error updating post:", error);
     return res
       .status(500)
-      .json({ success: false, message: "Internal Server Error :(" });
+      .json({ success: false, message: "Internal Server Error" });
   }
 });
 
