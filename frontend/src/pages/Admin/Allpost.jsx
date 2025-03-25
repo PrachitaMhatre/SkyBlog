@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { FaTrashAlt, FaEdit } from 'react-icons/fa';
 import { BaseUrl, del, get } from '../../services/Endpoint.js';
 import toast from 'react-hot-toast';
-import UpdatePost from './Updatepost.jsx';  // Import the update post modal
+import UpdatePost from './UpdatePost.jsx';  // Import the update post modal
 
 export default function AllPost() {
   const [posts, setPosts] = useState([]);
