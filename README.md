@@ -1,4 +1,5 @@
-##SKYBLOG
+## **SKYBLOG**
+
 # Working Links for the Project
 
 🔗 **Web Application hosted on Azure VM** → [SKYBLOG](#)
@@ -17,7 +18,7 @@ The blog application is securely deployed on an **Azure Virtual Machine (Linux/W
 
 ---
 
-##  Web Technologies Used
+## Web Technologies Used
 
 1. **HTML**
 2. **CSS**
@@ -34,7 +35,7 @@ The blog application is securely deployed on an **Azure Virtual Machine (Linux/W
 
 ---
 
-##  Azure Services Used
+## ☁️ Azure Services Used
 
 | Service                     | Purpose                                                             |
 |-----------------------------|---------------------------------------------------------------------|
@@ -58,8 +59,7 @@ The blog application is securely deployed on an **Azure Virtual Machine (Linux/W
 
 ---
 
-## Website Preview
-
+##  Website Preview
 
 ---
 
