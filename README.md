@@ -45,7 +45,7 @@ The complete application is deployed on **Azure App Service** and **Azure Static
 
 ---
 
-## 🌍 Website Preview
+##  Website Preview
 
 
 ---
