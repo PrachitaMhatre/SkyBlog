@@ -50,6 +50,4 @@ The complete application is deployed on **Azure App Service** and **Azure Static
 
 ---
 
-If you want, I can prepare this as a ready-to-paste **README.md file** and send it to you in `.md` format too.
 
-**Shall I prepare it?**
