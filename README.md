@@ -1,4 +1,4 @@
-# 🌐 Working Links for the Project
+#  Working Links for the Project
 
 🔗 **Web Application hosted on Azure** → [SKYBLOG](#)
 
@@ -6,7 +6,7 @@
 
 ---
 
-## 🚀 Project Aim
+## Project Aim
 
 **SkyBlog** is a full-stack dynamic blog platform developed using the **MERN Stack (MongoDB, Express.js, React.js, Node.js)** with seamless integration of **Microsoft Azure Cloud Services**. This platform enables users to **Create, Read, Update, and Delete (CRUD)** blog posts efficiently.
 
@@ -15,7 +15,7 @@ The complete application is deployed on **Azure App Service** and **Azure Static
 
 ---
 
-## 🛠️ Web Technologies Used
+##  Web Technologies Used
 
 1. **HTML**
 2. **CSS**
@@ -33,7 +33,7 @@ The complete application is deployed on **Azure App Service** and **Azure Static
 
 ---
 
-## 🌟 Project Features
+##  Project Features
 
 - Full **CRUD** functionality for Blog Posts
 - RESTful APIs using **Express.js & Node.js**
