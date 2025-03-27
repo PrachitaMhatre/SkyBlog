@@ -61,7 +61,5 @@ The blog application is securely deployed on an **Azure Virtual Machine (Linux/W
 ## Website Preview
 
 
-> _Homepage of SkyBlog hosted on Azure VM with full-stack functionality._
-
 ---
 
