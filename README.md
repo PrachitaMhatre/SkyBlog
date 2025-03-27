@@ -32,10 +32,11 @@ The blog application is securely deployed on an **Azure Virtual Machine (Linux/W
    - **Virtual Machine (VM)**
    - **Backup Vault**
    - **Monitor Services**
+   - **Recovery Services vault**
 
 ---
 
-## ☁️ Azure Services Used
+## Azure Services Used
 
 | Service                     | Purpose                                                             |
 |-----------------------------|---------------------------------------------------------------------|
