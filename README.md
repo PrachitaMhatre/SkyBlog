@@ -47,9 +47,6 @@ The complete application is deployed on **Azure App Service** and **Azure Static
 
 ## 🌍 Website Preview
 
-![SkyBlog Preview](./preview.png)
-
-> _Homepage of SkyBlog with a clean, dynamic UI and Azure hosted backend APIs._
 
 ---
 
