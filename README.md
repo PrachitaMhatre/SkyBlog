@@ -2,7 +2,7 @@
 
 # Working Links for the Project
 
-🔗 **Web Application hosted on Azure VM** → [SKYBLOG](#)
+🔗 **Web Application hosted on Azure VM** → HTTP://40.81.235.233
 
 📄 **Project Documentation** → [Documentation](#)
 
