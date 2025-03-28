@@ -27,7 +27,7 @@ export default function Dashboard() {
 
     return (
         <div className="container" style={{ paddingTop: "70px" }}>  {/* ✅ Added padding to push content down */}
-            <h2 className="mb-4 text-black">Dashboard</h2>
+            <h2 className="mb-4 fw-bold text-black">Dashboard</h2>
             <div className="row">
                 <div className="col-md-4">
                     <div className="card bg-primary text-white mb-4">

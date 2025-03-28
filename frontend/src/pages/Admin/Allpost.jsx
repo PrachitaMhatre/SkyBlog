@@ -53,7 +53,7 @@ export default function AllPost() {
 
   return (
     <div className="container" style={{ paddingTop: "70px" }}>
-      <h2 className="text-center mb-4" style={{ color: "black" }}>All Posts</h2>
+      <h2 className="text-center fw-bold mb-4" style={{ color: "black" }}>All Posts</h2>
       
       <div className="row">
         {posts.length > 0 ? (

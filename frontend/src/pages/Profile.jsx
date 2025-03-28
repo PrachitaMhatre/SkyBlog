@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { FaUser, FaLock, FaCamera } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
-import { BaseUrl, patch } from '../services/Endpoint';
+import { BaseUrl, patch } from '../services/Endpoint.js';
 import { useParams } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import { setUser } from '../redux/AuthSlice';
@@ -21,7 +21,7 @@ export default function Profile() {
       setName(user.FullName);
     }
   }, []); 
-
+   
   const handleImageChange = (e) => {
     setProfileImage(e.target.files[0]);
   };

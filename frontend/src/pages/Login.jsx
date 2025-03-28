@@ -25,11 +25,11 @@ export default function Login() {
 
         try {
             const response = await post('/auth/login', value);
-            const data = response.data; // 
+            const data = response.data; 
             
             console.log("Login success:", data);
 
-            if (response.status === 200) { // 
+            if (response.status === 200) { 
                 dispatch(setUser(data.user));
                 navigate('/');
                 toast.success(data.message);
@@ -46,52 +46,59 @@ export default function Login() {
     };
 
     return (
-        <>
-            <section className="bg-light">
-                <div className="container d-flex flex-column align-items-center justify-content-center min-vh-100 py-4">
-                    <a href="#" className="mb-4 text-dark text-decoration-none d-flex align-items-center">
-                        <img className="me-2" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg" alt="logo" width="32" height="32" />
-                        <Link to={'/'}> <span className="h4 mb-0 fw-bold">SkyBlog</span></Link>
-                    </a>
-                    <div className="card shadow-sm w-100" style={{ maxWidth: '400px' }}>
-                        <div className="card-body p-4">
-                            <h1 className="h5 mb-4 fw-bold text-dark">Sign in to your account</h1>
-                            <form onSubmit={handleSubmit}>
-                                <div className="mb-3">
-                                    <label htmlFor="email" className="form-label">Your email</label>
-                                    <input
-                                        type="email"
-                                        name='email'
-                                        onChange={handleChange}
-                                        className="form-control"
-                                        id="email"
-                                        placeholder="name@company.com"
-                                        required
-                                        value={value.email}
-                                    />
-                                </div>
-                                <div className="mb-3">
-                                    <label htmlFor="password" className="form-label">Password</label>
-                                    <input
-                                        type="password"
-                                        onChange={handleChange}
-                                        value={value.password}
-                                        name='password'
-                                        className="form-control"
-                                        id="password"
-                                        placeholder="••••••••"
-                                        required
-                                    />
-                                </div>
-                                <button type="submit" className="btn btn-primary w-100">Sign in</button>
-                            </form>
-                            <p className="mt-3 mb-0 text-muted">
-                                Don’t have an account yet? <Link to="/register" className="text-primary">Sign up</Link>
-                            </p>
+        <section className="bg-light d-flex align-items-center justify-content-center min-vh-100">
+            <div className="container">
+                <div className="row justify-content-center">
+                    <div className="col-md-5">
+                        <div className="card shadow-sm border-0">
+                            <div className="card-body p-4 text-white" style={{ backgroundColor: "rgba(0, 0, 0, 0.7)", borderRadius: "8px" }}>
+                                
+                                {/* Stylish SkyBlog Name */}
+                                <h2 className="fw-bold mb-3 text-center">
+                                    <span className="text-white">Sky</span>
+                                    <span style={{ color: "#0dcaf0" }}>Blog</span>
+                                </h2>
+                                
+                                <h5 className="text-center mb-4">Sign in to your account</h5>
+                                
+                                <form onSubmit={handleSubmit}>
+                                    <div className="mb-3">
+                                        <label htmlFor="email" className="form-label fw-semibold">Email</label>
+                                        <input
+                                            type="email"
+                                            name="email"
+                                            onChange={handleChange}
+                                            className="form-control"
+                                            id="email"
+                                            placeholder="name@example.com"
+                                            required
+                                            value={value.email}
+                                        />
+                                    </div>
+                                    <div className="mb-3">
+                                        <label htmlFor="password" className="form-label fw-semibold">Password</label>
+                                        <input
+                                            type="password"
+                                            onChange={handleChange}
+                                            value={value.password}
+                                            name="password"
+                                            className="form-control"
+                                            id="password"
+                                            placeholder="Enter your password"
+                                            required
+                                        />
+                                    </div>
+                                    <button type="submit" className="btn btn-primary w-100 mt-2">Sign in</button>
+                                </form>
+
+                                <p className="mt-3 text-center">
+                                    Don’t have an account yet? <Link to="/register" className="text-primary">Sign up</Link>
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </section>
-        </>
+            </div>
+        </section>
     );
 }

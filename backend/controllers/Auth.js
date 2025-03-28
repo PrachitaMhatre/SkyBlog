@@ -9,7 +9,7 @@ const Register = async (req, res) => {
   try {
     const { FullName, email, password } = req.body;
 
-    // Ensure file is uploaded before accessing filename
+    //  Ensure file is uploaded before accessing filename
     if (!req.file) {
       return res.status(400).json({
         success: false,
@@ -30,7 +30,7 @@ const Register = async (req, res) => {
     }
 
     // Hash Password
-    const hashedPassword = bcrypt.hashSync(password, 10);
+    const hashedPassword = await bcrypt.hash(password, 10);
     const newUser = new UserModel({
       FullName,
       email,
@@ -129,6 +129,7 @@ const updateProfile = async (req, res) => {
     const userId = req.params.id;
     const { FullName, oldpassword, newpassword } = req.body;
 
+    // Find the User
     const ExistUser = await UserModel.findById(userId);
     if (!ExistUser) {
       return res
@@ -136,7 +137,7 @@ const updateProfile = async (req, res) => {
         .json({ success: false, message: "Account not found :(" });
     }
 
-    // Check Old Password if Provided
+    // Validate Old Password If Provided
     if (oldpassword) {
       const comparePassword = await bcrypt.compare(
         oldpassword,
@@ -154,7 +155,7 @@ const updateProfile = async (req, res) => {
       ExistUser.FullName = FullName;
     }
 
-    // Update Password if Both Old and New Passwords Are Provided
+    // Update Password If Both Old & New Passwords Are Provided
     if (oldpassword && newpassword) {
       const hashedPassword = await bcrypt.hash(newpassword, 10);
       ExistUser.password = hashedPassword;
@@ -165,9 +166,9 @@ const updateProfile = async (req, res) => {
       });
     }
 
-    // Update Profile Image if a New One is Uploaded
+    //  Handle Profile Image Update
     if (req.file && req.file.filename) {
-      // Delete Old Image
+      //  Delete Old Image
       if (ExistUser.profile) {
         const oldImagePath = path.join("public/images", ExistUser.profile);
         if (fs.existsSync(oldImagePath)) {
@@ -178,15 +179,22 @@ const updateProfile = async (req, res) => {
       ExistUser.profile = req.file.filename;
     }
 
-    // Save Updated User
+    //  Save Updated User
     await ExistUser.save();
+
+    //  Dynamically Generate Full Profile URL
+    const imageUrl = `${req.protocol}://${req.get("host")}/images/${
+      ExistUser.profile
+    }`;
 
     res.status(200).json({
       success: true,
       message: "Profile updated successfully.",
       user: {
-        ...ExistUser._doc,
-        profile: ExistUser.profile, // Return updated profile path
+        _id: ExistUser._id,
+        FullName: ExistUser.FullName,
+        email: ExistUser.email,
+        profile: imageUrl, //
       },
     });
   } catch (error) {

@@ -3,7 +3,7 @@ import PostModel from "../models/Blog.js";
 const GetSinglePost = async (req, res) => {
   try {
     const { id } = req.params;
-    console.log("📡 Received Post ID:", id); // ✅ Debugging log
+    console.log("Received Post ID:", id); //
 
     if (!id) {
       return res
@@ -13,7 +13,7 @@ const GetSinglePost = async (req, res) => {
 
     const post = await PostModel.findById(id).populate({
       path: "comments",
-      populate: { path: "userId", select: "FullName profile email" }, // ✅ Fetch user details
+      populate: { path: "userId", select: "FullName profile email" },
     });
 
     if (!post) {
@@ -24,7 +24,7 @@ const GetSinglePost = async (req, res) => {
 
     res.status(200).json({ success: true, Post: post });
   } catch (error) {
-    console.error("❌ Backend Error:", error);
+    console.error("Backend Error:", error);
     res
       .status(500)
       .json({ success: false, message: "Internal server error :(" });

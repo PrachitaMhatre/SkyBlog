@@ -43,7 +43,7 @@ export default function Addpost() {
           width: "400px"
         }}
       >
-        <h3 className="text-center text-primary mb-4">Add New Blog</h3>
+        <h3 className="text-center text-dark fw-bold mb-4">Add New Blog</h3>
         <form method="post" encType="multipart/form-data" onSubmit={handleSubmit}>
           
           {/* Image Upload */}

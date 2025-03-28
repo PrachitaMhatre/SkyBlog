@@ -4,12 +4,12 @@ import { post } from '../services/Endpoint';
 import toast from 'react-hot-toast';
 
 export default function Register() {
-  const navigate=useNavigate()
+  const navigate = useNavigate();
   const [value, setValue] = useState({
     fullName: "",
     email: "",
     password: "",
-    image: null, // To store the selected image
+    image: null, 
   });
 
   const handleImageChange = (e) => {
@@ -24,77 +24,82 @@ export default function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    // Create FormData object
     const formData = new FormData();
     formData.append('FullName', value.fullName);
     formData.append('email', value.email);
     formData.append('password', value.password);
-    formData.append('profile', value.image); // Using 'profile' as the key for the image
+    formData.append('profile', value.image); 
 
     try {
       const response = await post('/auth/register', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
+        headers: { 'Content-Type': 'multipart/form-data' },
       });
       const data = response.data;
       if (data.success) {
-        console.log(data.message)
-        navigate('/login')
-        toast.success(data.message)
-
-       }
+        console.log(data.message);
+        navigate('/login');
+        toast.success(data.message);
+      }
       console.log('register api', data);
     } catch (error) {
       console.log(error);
-      console.error("login error", error);
-      if (error.response && error.response.data && error.response.data.message) {
-          // setError(error.response.data.message); // Set error message from server response
-          toast.error(error.response.data.message)
-      } else {
-          toast.error("An unexpected error occurred. Please try again.");
-      }
+      toast.error(error.response?.data?.message || "An unexpected error occurred. Please try again.");
     }
   };
 
   return (
-    <>
-      <section className="bg-light">
-        <div className="container d-flex flex-column align-items-center justify-content-center min-vh-100 py-4">
-          <a href="#" className="mb-4 text-dark text-decoration-none d-flex align-items-center">
-            <img className="me-2" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg" alt="logo" width="32" height="32" />
-            <Link to={'/'}> <span className="h4 mb-0 fw-bold">SkyBlog</span></Link> 
-          </a>
-          <div className="card shadow-sm w-100" style={{ maxWidth: '400px' }}>
-            <div className="card-body p-4">
-              <h1 className="h5  fw-bold text-dark">Create an account</h1>
+    <section className="d-flex align-items-center justify-content-center min-vh-100 bg-light">
+      <div className="container">
+        <div className="row justify-content-center">
+          <div className="col-md-4"> {/* Smaller card width */}
+            <div className="card shadow-lg border-0 p-3"
+              style={{ 
+                backgroundColor: "rgba(0, 0, 0, 0.7)", 
+                borderRadius: "10px",
+                padding: "25px", 
+                margin: "20px auto", 
+                maxWidth: "350px" // Smaller width for a compact design
+              }}>
+
+              {/* SkyBlog Branding */}
+              <h3 className="fw-bold text-center mb-3">
+                <span className="text-white">Sky</span>
+                <span style={{ color: "#0dcaf0" }}>Blog</span>
+              </h3>
+
+              <h6 className="text-center text-muted mb-3">Create an account</h6>
+
               <form onSubmit={handleSubmit}>
-                <div className=" text-center">
-                  <label htmlFor="image" className="form-label">Profile Picture</label>
-                  <div className="d-flex justify-content-center ">
+
+                {/* Profile Picture Upload */}
+                <div className="text-center mb-2">
+                  <label htmlFor="image" className="form-label text-white">Profile Picture</label>
+                  <div className="d-flex justify-content-center">
                     <img 
-                      src={value.image ? URL.createObjectURL(value.image) : 'https://img.freepik.com/free-vector/blue-circle-with-white-user_78370-4707.jpg?t=st=1738928483~exp=1738932083~hmac=e97f923e3011b25dd5fca675d983ccf8ea015b590bebfcd5610c7109291f8605&w=740'} 
+                      src={value.image ? URL.createObjectURL(value.image) : 'https://img.freepik.com/free-vector/blue-circle-with-white-user_78370-4707.jpg'} 
                       alt="avatar" 
-                      className="rounded-circle" 
-                      width="100" 
-                      height="100"
+                      className="rounded-circle border border-secondary"
+                      width="70" 
+                      height="70"
                       style={{ cursor: 'pointer' }}
-                      onClick={handleImageClick} // Click event to trigger file input
+                      onClick={handleImageClick} 
                     />
                   </div>
                   <input 
                     type="file" 
-                    className="form-control d-none" // Hide the file input
+                    className="form-control d-none"
                     id="image" 
                     accept="image/*" 
                     onChange={handleImageChange} 
                   />
                 </div>
-                <div className="mb-3">
-                  <label htmlFor="fullName" className="form-label">Full Name</label>
+
+                {/* Full Name Field */}
+                <div className="mb-2">
+                  <label htmlFor="fullName" className="form-label text-white fw-semibold">Full Name</label>
                   <input 
                     type="text" 
-                    className="form-control" 
+                    className="form-control p-2" 
                     id="fullName" 
                     placeholder="John Doe" 
                     required 
@@ -102,11 +107,13 @@ export default function Register() {
                     onChange={(e) => setValue({ ...value, fullName: e.target.value })} 
                   />
                 </div>
-                <div className="mb-3">
-                  <label htmlFor="email" className="form-label">Email</label>
+
+                {/* Email Field */}
+                <div className="mb-2">
+                  <label htmlFor="email" className="form-label text-white fw-semibold">Email</label>
                   <input 
                     type="email" 
-                    className="form-control" 
+                    className="form-control p-2" 
                     id="email" 
                     placeholder="name@company.com" 
                     required 
@@ -114,11 +121,13 @@ export default function Register() {
                     onChange={(e) => setValue({ ...value, email: e.target.value })} 
                   />
                 </div>
-                <div className="mb-3">
-                  <label htmlFor="password" className="form-label">Password</label>
+
+                {/* Password Field */}
+                <div className="mb-2">
+                  <label htmlFor="password" className="form-label text-white fw-semibold">Password</label>
                   <input 
                     type="password" 
-                    className="form-control" 
+                    className="form-control p-2" 
                     id="password" 
                     placeholder="••••••••" 
                     required 
@@ -126,15 +135,20 @@ export default function Register() {
                     onChange={(e) => setValue({ ...value, password: e.target.value })} 
                   />
                 </div>
-                <button type="submit" className="btn btn-primary w-100">Sign up</button>
+
+                {/* Sign Up Button */}
+                <button type="submit" className="btn btn-primary w-100 mt-2 p-2">Sign up</button>
               </form>
-              <p className="mt-3 mb-0 text-muted">
+
+              {/* Already have an account? */}
+              <p className="mt-2 text-center text-white">
                 Already have an account? <Link to="/login" className="text-primary">Sign in</Link>
               </p>
+
             </div>
           </div>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 }

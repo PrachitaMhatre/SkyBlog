@@ -1,7 +1,7 @@
 import PostModel from "../models/Blog.js";
 import CommentModel from "../models/comments.js";
 import UserModel from "../models/user.js";
-import mongoose from "mongoose"; // ✅ Ensure mongoose is imported for ObjectId validation
+import mongoose from "mongoose";
 
 // ✅ Get all data: Users, Posts, Comments
 const Getalldata = async (req, res) => {
