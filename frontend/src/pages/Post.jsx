@@ -5,9 +5,8 @@ import { useSelector } from 'react-redux';
 import toast from 'react-hot-toast';
 
 export default function Post() {
-
-const { id } = useParams();
-console.log("🔍 Post ID from URL:", id);  // ✅ Check if the `id` is available
+  const { id } = useParams();
+  console.log("Post ID from URL:", id);  // ✅ Debugging
 
   const user = useSelector((state) => state.auth.user);
 
@@ -17,25 +16,25 @@ console.log("🔍 Post ID from URL:", id);  // ✅ Check if the `id` is availabl
 
   useEffect(() => {
     if (!id) {
-      console.error("❌ Post ID is undefined. Skipping API call.");
+      console.error("Post ID is undefined. Skipping API call.");
       return;
     }
   
     const SinglePost = async () => {
       try {
-        console.log(`📡 Fetching post with ID: ${id}`);
+        console.log(`Fetching post with ID: ${id}`);
         const response = await get(`/public/singlepost/${id}`);
         setSinglePost(response.data.Post);
       } catch (error) {
-        console.error("❌ Error fetching post:", error);
+        console.error("Error fetching post:", error);
       }
     };
   
     SinglePost();
   }, [id, loaddata]);
-  
+
   const onSubmitComment = async (e) => {
-    e.preventDefault(); // ✅ Prevent form from refreshing the page
+    e.preventDefault();
 
     if (!user) {
       toast.error('Please login to comment');
@@ -45,17 +44,15 @@ console.log("🔍 Post ID from URL:", id);  // ✅ Check if the `id` is availabl
     try {
       const request = await post("/comment/addcomment", {
         comment,
-        postId: id, // ✅ Ensure backend expects this field
+        postId: id,
         userId: user._id,
       });
 
       const response = request.data;
-      console.log(response);
-
       if (response.success) {
         toast.success(response.message);
         setComment('');
-        setLoaddata((prevState) => !prevState); // ✅ Refresh comments
+        setLoaddata((prevState) => !prevState);
       }
     } catch (error) {
       console.log(error);
@@ -64,10 +61,11 @@ console.log("🔍 Post ID from URL:", id);  // ✅ Check if the `id` is availabl
   };
 
   return (
-    <div className="container text-black mt-5 mb-5"> {/* ✅ Changed text color to black */}
+    <div className="container text-black mt-5 mb-5" style={{ paddingTop: "70px" }}>
       <div className="row">
         <div className="col-md-12">
-          <h1 className="fw-bold text-black mb-4 display-6">{singlepost?.title}</h1> {/* ✅ Changed to black */}
+          <h2 className="fw-bold text-black mb-4 display-10">{singlepost?.title}</h2>
+
           {singlepost?.image && (
             <img 
               src={`${BaseUrl}/images/${singlepost.image}`} 
@@ -76,15 +74,20 @@ console.log("🔍 Post ID from URL:", id);  // ✅ Check if the `id` is availabl
               style={{ borderRadius: "10px", maxHeight: "500px", objectFit: "cover", width: "100%" }}
             />
           )}
+
           
-          <p className="mb-5 text-black justify-text">{singlepost?.desc}</p> {/* ✅ Changed to black */}
+          <div className="mb-5 text-black" style={{ textAlign: "justify", whiteSpace: "pre-line" }}>
+            {singlepost?.desc?.split('\n').map((paragraph, index) => (
+              <p key={index} className="mb-3">{paragraph}</p>
+            ))}
+          </div>
 
           <hr />
 
-          <h3 className="mt-5 mb-4 text-black">Leave a Comment</h3> {/* ✅ Changed to black */}
+          <h3 className="mt-5 mb-4 text-black">Leave a Comment</h3>
           <form onSubmit={onSubmitComment}>
             <div className="mb-3">
-              <label htmlFor="comment" className="form-label text-black">Comment</label> {/* ✅ Changed to black */}
+              <label htmlFor="comment" className="form-label text-black">Comment</label>
               <textarea 
                 className="form-control" 
                 id="comment" 
@@ -100,10 +103,10 @@ console.log("🔍 Post ID from URL:", id);  // ✅ Check if the `id` is availabl
 
           <hr />
 
-          <h3 className="mt-5 mb-4 text-black">Comments</h3> {/* ✅ Changed to black */}
+          <h3 className="mt-5 mb-4 text-black">Comments</h3>
           {singlepost?.comments?.length > 0 ? (
             singlepost.comments.map((comment) => (
-              <div className="bg-light p-3 rounded mb-3 d-flex" key={comment._id}> {/* ✅ Changed background to light */}
+              <div className="bg-light p-3 rounded mb-3 d-flex" key={comment._id}>
                 <img 
                   src={`${BaseUrl}/images/${comment.userId?.profile}`} 
                   alt="User Profile" 
@@ -111,8 +114,8 @@ console.log("🔍 Post ID from URL:", id);  // ✅ Check if the `id` is availabl
                   style={{ width: "50px", height: "50px", objectFit: "cover" }}
                 />
                 <div>
-                  <h5 className="mb-1 text-black">{comment.userId?.FullName || "Anonymous"}</h5> {/* ✅ Changed to black */}
-                  <p className="mb-0 text-black">{comment.comment}</p> {/* ✅ Changed to black */}
+                  <h5 className="mb-1 text-black">{comment.userId?.FullName || "Anonymous"}</h5>
+                  <p className="mb-0 text-black">{comment.comment}</p>
                 </div>
               </div>
             ))

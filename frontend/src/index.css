@@ -29,6 +29,7 @@
   /* Hero Section */
   /* Hero Section */
   .hero-section {
+    margin-top: 70px;
     position: relative;
     padding: 150px 20px;
     display: flex;

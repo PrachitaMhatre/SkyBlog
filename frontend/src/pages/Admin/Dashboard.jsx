@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react"; 
 import { get } from "../../services/Endpoint.js";
 
-
 export default function Dashboard() {
     const [totalUsers, setTotalUsers] = useState(0);
     const [totalPosts, setTotalPosts] = useState(0);
     const [totalComments, setTotalComments] = useState(0);
-
     const [loadedata, setLoadedata] = useState(false);
 
     useEffect(() => {
@@ -28,7 +26,7 @@ export default function Dashboard() {
     }, [loadedata]);
 
     return (
-        <div>
+        <div className="container" style={{ paddingTop: "70px" }}>  {/* ✅ Added padding to push content down */}
             <h2 className="mb-4 text-black">Dashboard</h2>
             <div className="row">
                 <div className="col-md-4">

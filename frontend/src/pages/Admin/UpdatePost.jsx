@@ -1,79 +1,118 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
+import { post } from '../../services/Endpoint.js';
+import toast from 'react-hot-toast';
 
-export default function UpdatePost({ post, onClose }) {
-  const [title, setTitle] = useState(post.title);
-  const [description, setDescription] = useState(post.description);
+export default function Addpost() {
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
   const [image, setImage] = useState(null);
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!title || !description || !image) {
+      toast.error("All fields are required!");
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append("title", title);
+    formData.append("desc", description);
+    formData.append("postimage", image);
+
+    try {
+      await post("/blog/create", formData, true);
+      toast.success("Post created successfully!");
+    } catch (error) {
+      console.error("Error:", error);
+      toast.error("Error creating post!");
+    }
+  };
+
   return (
-    <div
-      className="modal fade show d-block"
-      tabIndex="-1"
-      role="dialog"
-      style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
+    <div 
+      className="d-flex justify-content-center align-items-center vh-100"
+      style={{ background: "#f8f9fa", padding: "20px" }} // ✅ Light grey background
     >
-      <div className="modal-dialog">
-        <div className="modal-content border-0 shadow-lg">
-          {/* Modal Header */}
-          <div className="modal-header bg-primary text-white">
-            <h5 className="modal-title">Update Post</h5>
-            <button type="button" className="btn-close" onClick={onClose}></button>
+      <div 
+        className="card shadow-sm p-4"
+        style={{
+          background: "#ffffff",
+          border: "1px solid #ced4da", // ✅ Grey border
+          borderRadius: "8px",
+          width: "400px"
+        }}
+      >
+        <h3 className="text-center text-primary mb-4">Add New Blog</h3>
+        <form method="post" encType="multipart/form-data" onSubmit={handleSubmit}>
+          
+          {/* Image Upload */}
+          <div className="mb-3">
+            <label htmlFor="postImage" className="form-label text-dark fw-semibold">Upload Image</label>
+            <input 
+              type="file" 
+              className="form-control" 
+              id="postImage" 
+              onChange={(e) => setImage(e.target.files[0])} 
+              required
+            />
+          </div>
+          
+          {/* Title Input */}
+          <div className="mb-3">
+            <label htmlFor="postTitle" className="form-label text-dark fw-semibold">Title</label>
+            <input 
+              type="text" 
+              className="form-control" 
+              id="postTitle" 
+              placeholder="Enter post title" 
+              value={title}
+              onChange={(e) => setTitle(e.target.value)} 
+              required
+            />
           </div>
 
-          {/* Modal Body */}
-          <div className="modal-body">
-            <form encType="multipart/form-data">
-              {/* Title */}
-              <div className="mb-3">
-                <label className="form-label fw-semibold">Title</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  value={title}
-                  onChange={(e) => setTitle(e.target.value)}
-                  required
-                />
-              </div>
-
-              {/* Description */}
-              <div className="mb-3">
-                <label className="form-label fw-semibold">Description</label>
-                <textarea
-                  className="form-control"
-                  rows="4"
-                  value={description}
-                  onChange={(e) => setDescription(e.target.value)}
-                  required
-                />
-              </div>
-
-              {/* Upload Image */}
-              <div className="mb-3">
-                <label className="form-label fw-semibold">Upload New Image (Optional)</label>
-                <input
-                  type="file"
-                  className="form-control"
-                  onChange={(e) => setImage(e.target.files[0])}
-                />
-              </div>
-
-              {/* Action Buttons */}
-              <div className="d-flex justify-content-end">
-                <button
-                  type="button"
-                  className="btn btn-secondary me-2"
-                  onClick={onClose}
-                >
-                  Cancel
-                </button>
-                <button type="submit" className="btn btn-primary">
-                  Update Post
-                </button>
-              </div>
-            </form>
+          {/* Description */}
+          <div className="mb-3">
+            <label htmlFor="postDescription" className="form-label text-dark fw-semibold">Description</label>
+            <textarea 
+              className="form-control" 
+              id="postDescription" 
+              rows="4" 
+              placeholder="Write your post description here" 
+              value={description}
+              onChange={(e) => setDescription(e.target.value)} 
+              required
+            ></textarea>
           </div>
-        </div>
+
+          {/* Submit Button */}
+          <div className="d-grid">
+            <button 
+              type="submit" 
+              className="btn btn-primary btn-lg custom-btn"
+            >
+              Submit
+            </button>
+          </div>
+
+        </form>
       </div>
+
+      {/* Button Hover Animation */}
+      <style>
+        {`
+          .custom-btn {
+            transition: all 0.4s ease-in-out;
+          }
+
+          .custom-btn:hover {
+            background-color: #004085 !important; /* Darker Blue */
+            color: white !important;
+            transform: scale(1.05); /* Slightly enlarges */
+          }
+        `}
+      </style>
     </div>
   );
 }

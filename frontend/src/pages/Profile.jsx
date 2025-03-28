@@ -57,7 +57,7 @@ export default function Profile() {
   };
 
   return (
-    <div className="profile-container">
+    <div className="profile-container"style={{ marginTop: "100px" }} >
       <h1 className="profile-title">Update Profile</h1>
       <form className="profile-form" onSubmit={handleUpdateProfile}>
         <div className="profile-image-section">
