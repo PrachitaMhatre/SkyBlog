@@ -105,7 +105,7 @@ The blog application is securely deployed on an **Azure Virtual Machine (Linux/W
 ## Dashboard After Login
 ![Screenshot (77)](https://github.com/user-attachments/assets/08794eb2-1f1e-4927-8152-c15d88df5c76)
 
-## 
+## Dashboard Overview
 ![Screenshot (79)](https://github.com/user-attachments/assets/46df9395-b46e-44f2-b5e5-cec7d5d6d3b8)
 
 ##  Add New Blog
