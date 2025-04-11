@@ -114,7 +114,7 @@ The blog application is securely deployed on an **Azure Virtual Machine (Linux/W
 ## User Mangement
 ![Screenshot (81)](https://github.com/user-attachments/assets/e2dc2220-5553-4ceb-a7f2-7fd099bc1f8b)
 
-##  Posts
+## All Posts
 ![Screenshot (82)](https://github.com/user-attachments/assets/b558bf5a-b213-4ad0-a231-10abe2ae30a5)
 
  ## Update Profile
