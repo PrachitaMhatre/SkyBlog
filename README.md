@@ -64,29 +64,32 @@ The blog application is securely deployed on an **Azure Virtual Machine (Linux/W
 
 
 ## Azure Resources Overview
-## Azure Dashboard
+## Virtual Machine
 ![image](https://github.com/user-attachments/assets/9f8d32d9-dc3c-4cfc-bf2c-1e8152cd42cd)
-##  Resource Group Overview
+##  Public IP Address
 ![image](https://github.com/user-attachments/assets/4c5b5e7c-eb74-48e6-8d00-a2ce54304854)
-## App Service Plan Details
+## Resource group
 ![image](https://github.com/user-attachments/assets/ed975ded-51d7-484d-a75c-2bae2ba987a3)
-## Web App Configuration
+## Notification Hub
 ![image](https://github.com/user-attachments/assets/359c6ef3-25b8-45be-96a4-a72ba714174b)
-## Deployment Center
+## Backup Vault
 ![image](https://github.com/user-attachments/assets/88e8faad-9121-49d8-b866-2c837a0d3926)
-## App Service Logs
+## Disk
 ![image](https://github.com/user-attachments/assets/7a6cb02d-e3ba-4b98-98b1-0cc5953d730f)
-## Monitoring
+## Virtual Network
 ![image](https://github.com/user-attachments/assets/1a174789-1749-492c-9d89-3d6e7006dbec)
+## Network Security Group
 ![image](https://github.com/user-attachments/assets/09545e81-f3d9-45e5-9256-68c4b35c0689)
 
 ##  Website Preview
 
 ---
 
-
+## index.js
 ![image](https://github.com/user-attachments/assets/2b2ee2df-57f0-46d5-a65f-12536a0b4717)
+## index.html
 ![image](https://github.com/user-attachments/assets/02dee257-7084-49a5-a207-f2177955db11)
+
 ![image](https://github.com/user-attachments/assets/eb56792c-004a-4ce5-acc5-33f23862b74a)
 ![image](https://github.com/user-attachments/assets/59dfc502-927b-4c7b-b875-05d0c55791f5)
 ![image](https://github.com/user-attachments/assets/f77435a7-790a-48fa-b282-4311d326e9ee)
