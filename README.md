@@ -116,8 +116,12 @@ The blog application is securely deployed on an **Azure Virtual Machine (Linux/W
 ##  Posts
 ![Screenshot (82)](https://github.com/user-attachments/assets/b558bf5a-b213-4ad0-a231-10abe2ae30a5)
 
- ## Comment Posts Update ProfileAll
+ ## Update Profile
 ![Screenshot (83)](https://github.com/user-attachments/assets/cf1bd8bc-0a4f-43f8-9d0e-2e5cf91b8f84)
+
+##  Comment on  Posts
+![SkyBlog-03-31-2025_01_50_PM](https://github.com/user-attachments/assets/042759bd-a082-4096-b2bd-a9c0f2e2de66)
+
 
 
 
