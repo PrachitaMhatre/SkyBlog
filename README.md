@@ -86,30 +86,39 @@ The blog application is securely deployed on an **Azure Virtual Machine (Linux/W
 ---
 
 ## index.js
-![image](https://github.com/user-attachments/assets/2b2ee2df-57f0-46d5-a65f-12536a0b4717)
+![Screenshot (71)](https://github.com/user-attachments/assets/8d127c51-f086-47c1-ac45-b9c39a811dbc)
+
 ## index.html
-![image](https://github.com/user-attachments/assets/02dee257-7084-49a5-a207-f2177955db11)
+![Screenshot (72)](https://github.com/user-attachments/assets/76e4f6d6-60fe-4336-8a13-e6275e22e90c)
+
 ## Website Home Page
-![image](https://github.com/user-attachments/assets/eb56792c-004a-4ce5-acc5-33f23862b74a)
-![image](https://github.com/user-attachments/assets/59dfc502-927b-4c7b-b875-05d0c55791f5)
+![Screenshot (73)](https://github.com/user-attachments/assets/346f218e-24bc-4a58-b703-84865940249b)
+![Screenshot (74)](https://github.com/user-attachments/assets/e7341790-e782-4bb9-97be-8493a87e261a)
+
 ## Sign in
-![image](https://github.com/user-attachments/assets/f77435a7-790a-48fa-b282-4311d326e9ee)
+![Screenshot (75)](https://github.com/user-attachments/assets/177fd0f3-b49b-402d-9674-457fca71425c)
+
 ## Sign up
-![image](https://github.com/user-attachments/assets/ff550ce2-7ad4-4c49-beb9-9c29df0bd629)
+![Screenshot (76)](https://github.com/user-attachments/assets/a9b19e91-51a0-438f-812c-af9459dbaba1)
+
 ## Dashboard After Login
-![image](https://github.com/user-attachments/assets/c242c378-c97f-4db5-9e96-e9cc7be907cd)
-![image](https://github.com/user-attachments/assets/b9cbd6ac-0288-40b1-a96e-a5d37c4fdcc2)
+![Screenshot (77)](https://github.com/user-attachments/assets/08794eb2-1f1e-4927-8152-c15d88df5c76)
+
 ## Add New Blog
-![image](https://github.com/user-attachments/assets/91a0f777-717c-443e-810d-0e9156635270)
+![Screenshot (79)](https://github.com/user-attachments/assets/46df9395-b46e-44f2-b5e5-cec7d5d6d3b8)
+
 ## User Mangement
-![image](https://github.com/user-attachments/assets/605730d8-3023-4648-8908-0292377d6701)
+![Screenshot (80)](https://github.com/user-attachments/assets/f12ba20d-721c-4d28-8970-0d1b68de5425)
+
 ## All Posts
-![image](https://github.com/user-attachments/assets/772b0ef8-366b-45da-9b13-465a67527f84)
+![Screenshot (81)](https://github.com/user-attachments/assets/e2dc2220-5553-4ceb-a7f2-7fd099bc1f8b)
+
 ## Update Profile
-![image](https://github.com/user-attachments/assets/af0e4d35-87c6-4859-85c2-d682474889b9)
+![Screenshot (82)](https://github.com/user-attachments/assets/b558bf5a-b213-4ad0-a231-10abe2ae30a5)
+
  ## Comment Posts
-![image](https://github.com/user-attachments/assets/613ec17d-ef5f-4019-85cf-b013052b9a00)
-![image](https://github.com/user-attachments/assets/e695f157-4a0e-4754-a046-d4e0613122ed)
+![Screenshot (83)](https://github.com/user-attachments/assets/cf1bd8bc-0a4f-43f8-9d0e-2e5cf91b8f84)
+
 
 
 
