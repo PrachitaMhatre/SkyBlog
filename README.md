@@ -93,6 +93,7 @@ The blog application is securely deployed on an **Azure Virtual Machine (Linux/W
 
 ## Website Home Page
 ![Screenshot (73)](https://github.com/user-attachments/assets/346f218e-24bc-4a58-b703-84865940249b)
+## HomePage
 ![Screenshot (74)](https://github.com/user-attachments/assets/e7341790-e782-4bb9-97be-8493a87e261a)
 
 ## Sign in
