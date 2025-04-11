@@ -89,17 +89,25 @@ The blog application is securely deployed on an **Azure Virtual Machine (Linux/W
 ![image](https://github.com/user-attachments/assets/2b2ee2df-57f0-46d5-a65f-12536a0b4717)
 ## index.html
 ![image](https://github.com/user-attachments/assets/02dee257-7084-49a5-a207-f2177955db11)
-
+## Website Home Page
 ![image](https://github.com/user-attachments/assets/eb56792c-004a-4ce5-acc5-33f23862b74a)
 ![image](https://github.com/user-attachments/assets/59dfc502-927b-4c7b-b875-05d0c55791f5)
+## Sign in
 ![image](https://github.com/user-attachments/assets/f77435a7-790a-48fa-b282-4311d326e9ee)
+## Sign up
 ![image](https://github.com/user-attachments/assets/ff550ce2-7ad4-4c49-beb9-9c29df0bd629)
+## Dashboard After Login
 ![image](https://github.com/user-attachments/assets/c242c378-c97f-4db5-9e96-e9cc7be907cd)
 ![image](https://github.com/user-attachments/assets/b9cbd6ac-0288-40b1-a96e-a5d37c4fdcc2)
+## Add New Blog
 ![image](https://github.com/user-attachments/assets/91a0f777-717c-443e-810d-0e9156635270)
+## User Mangement
 ![image](https://github.com/user-attachments/assets/605730d8-3023-4648-8908-0292377d6701)
+## All Posts
 ![image](https://github.com/user-attachments/assets/772b0ef8-366b-45da-9b13-465a67527f84)
+## Update Profile
 ![image](https://github.com/user-attachments/assets/af0e4d35-87c6-4859-85c2-d682474889b9)
+ ## Comment Posts
 ![image](https://github.com/user-attachments/assets/613ec17d-ef5f-4019-85cf-b013052b9a00)
 ![image](https://github.com/user-attachments/assets/e695f157-4a0e-4754-a046-d4e0613122ed)
 
