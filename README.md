@@ -60,7 +60,8 @@ The blog application is securely deployed on an **Azure Virtual Machine (Linux/W
 
 ---
 ## Resource Visualizer
-![image](https://github.com/user-attachments/assets/e63d7831-4a56-43ff-97fa-4bb37cf0de06)
+![rg](https://github.com/user-attachments/assets/4b824bf7-53a0-4dad-a0a0-daf12b633ab7)
+
 
 ## Azure Resources Overview
 ![image](https://github.com/user-attachments/assets/9f8d32d9-dc3c-4cfc-bf2c-1e8152cd42cd)
