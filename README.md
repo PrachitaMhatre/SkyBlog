@@ -59,6 +59,18 @@ The blog application is securely deployed on an **Azure Virtual Machine (Linux/W
 - Organized Resource Management via **Azure Resource Group**
 
 ---
+## Resource Visualizer
+![image](https://github.com/user-attachments/assets/e63d7831-4a56-43ff-97fa-4bb37cf0de06)
+
+## Azure Resources Overview
+![image](https://github.com/user-attachments/assets/9f8d32d9-dc3c-4cfc-bf2c-1e8152cd42cd)
+![image](https://github.com/user-attachments/assets/4c5b5e7c-eb74-48e6-8d00-a2ce54304854)
+![image](https://github.com/user-attachments/assets/ed975ded-51d7-484d-a75c-2bae2ba987a3)
+![image](https://github.com/user-attachments/assets/359c6ef3-25b8-45be-96a4-a72ba714174b)
+![image](https://github.com/user-attachments/assets/88e8faad-9121-49d8-b866-2c837a0d3926)
+![image](https://github.com/user-attachments/assets/7a6cb02d-e3ba-4b98-98b1-0cc5953d730f)
+![image](https://github.com/user-attachments/assets/1a174789-1749-492c-9d89-3d6e7006dbec)
+![image](https://github.com/user-attachments/assets/09545e81-f3d9-45e5-9256-68c4b35c0689)
 
 ##  Website Preview
 
